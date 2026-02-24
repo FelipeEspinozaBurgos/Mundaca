@@ -1,0 +1,15 @@
+/* TEAM */
+Diseñador Principal: Alberto Espinoza (Diser)
+Especialidad: Graphic Design, Painting, Static Web
+Ubicación: Cancún, Quintana Roo
+Contacto: info@haciendamundaca.com
+
+/* THANKS */
+Inspiración: Graffiti urbano y cultura Maya
+Herramientas: Grok Imagine para visuals, SASS para estilos
+
+/* SITE */
+Última actualización: 2026-02-21
+Estándares: HTML5, CSS3, JS Vanilla
+Componentes: Minimalista con fragments JS
+Idioma: Español (con inglés planeado)

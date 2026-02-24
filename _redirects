@@ -1,0 +1,6 @@
+/               /index.html     200
+/sobre          /sobre-nosotros.html  301
+/sostenibilidad /sostenibilidad.html  301
+/actividades    /actividades.html     301
+/contacto       /contacto.html        301
+/*              /index.html           404  # Página 404 fallback (crea 404.html si quieres custom)

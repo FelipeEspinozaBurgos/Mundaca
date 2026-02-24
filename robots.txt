@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /components/  # Ignora componentes internos
+Disallow: /js/          # Ignora scripts privados si hay
+Disallow: /scss/        # Ignora fuentes SASS
+Allow: /
+
+Sitemap: https://www.haciendamundaca.com/sitemap.xml

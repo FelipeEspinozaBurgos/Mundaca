@@ -1,0 +1,24 @@
+# Temporales y OS
+.DS_Store
+Thumbs.db
+*.tmp
+*.log
+
+# Compilados y builds
+node_modules/
+dist/
+build/
+*.min.js
+*.min.css
+
+# SASS/CSS compilados (si usas watcher)
+css/*.css !css/main.css  # Ignora todos menos el principal si lo generas manual
+
+# Entornos locales
+.env
+.vscode/
+.idea/
+
+# Archivos grandes o sensibles
+assets/images/*.psd  # Ignora originales de Photoshop
+secrets.json

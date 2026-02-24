@@ -1,0 +1,166 @@
+// --- Mundaca Legacy Palette ---
+$primary: #0A6B7A;    // Deep Ocean Teal
+$accent: #A83232;     // Pirate Crimson
+$eco: #4A8C4A;        // Sargassum Green
+$coral: #F2E8D5;      // Coral Sand
+$foam: #F8FCFC;       // Sea Foam
+$misty: #8A9AA3;      // Misty Horizon
+$night: #1A1A1A;      // Night Ruins Black
+
+// --- Typography ---
+$font-display: 'Montserrat', sans-serif;
+$font-body: 'Inter', sans-serif;
+
+// --- Base Reset & Core ---
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: $font-body;
+  background-color: $foam;
+  color: $night;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+::selection {
+  background-color: $primary;
+  color: white;
+}
+
+// --- Utility Classes (Editorial Style) ---
+.max-w-3xl { max-width: 48rem; }
+.max-w-4xl { max-width: 56rem; }
+.max-w-5xl { max-width: 64rem; }
+.max-w-6xl { max-width: 72rem; }
+.mx-auto { margin-left: auto; margin-right: auto; }
+
+.text-center { text-align: center; }
+.uppercase { text-transform: uppercase; }
+.tracking-widest { letter-spacing: 0.1em; }
+
+.font-display { font-family: $font-display; }
+.font-body { font-family: $font-body; }
+
+.text-primary { color: $primary; }
+.text-accent { color: $accent; }
+.text-eco { color: $eco; }
+.text-night { color: $night; }
+.text-foam { color: $foam; }
+.text-misty { color: $misty; }
+
+.bg-foam { background-color: $foam; }
+.bg-coral { background-color: $coral; }
+.bg-night { background-color: $night; }
+
+.py-16 { padding-top: 4rem; padding-bottom: 4rem; }
+.py-24 { padding-top: 6rem; padding-bottom: 6rem; }
+.px-6 { padding-left: 1.5rem; padding-right: 1.5rem; }
+.mb-4 { margin-bottom: 1rem; }
+.mb-6 { margin-bottom: 1.5rem; }
+.mb-8 { margin-bottom: 2rem; }
+.mb-12 { margin-bottom: 3rem; }
+.mb-20 { margin-bottom: 5rem; }
+
+.opacity-80 { opacity: 0.8; }
+.opacity-90 { opacity: 0.9; }
+
+// --- Components ---
+
+// Buttons
+.btn {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  font-family: $font-display;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: 0.5rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 0.875rem;
+
+  &-primary {
+    background-color: $primary;
+    color: $foam;
+    &:hover {
+      background-color: lighten($primary, 5%);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba($primary, 0.2);
+    }
+  }
+
+  &-outline {
+    border: 2px solid $primary;
+    color: $primary;
+    &:hover {
+      background-color: $primary;
+      color: $foam;
+      transform: translateY(-2px);
+    }
+  }
+}
+
+// Hero Section
+.hero-section {
+  .hero-bg {
+    filter: brightness(0.7);
+  }
+}
+
+// Graffiti Textures
+.graffiti-edge-top {
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='20' viewBox='0 0 100 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0 L10 15 L20 5 L30 18 L40 2 L50 15 L60 5 L70 18 L80 2 L90 15 L100 0 Z' fill='%230A6B7A' fill-opacity='0.2'/%3E%3C/svg%3E");
+  mask-image: linear-gradient(to bottom, black, transparent);
+}
+
+// Form Elements
+input, textarea {
+  &::placeholder {
+    color: $misty;
+    opacity: 0.6;
+  }
+}
+
+// Responsive Grid
+.grid {
+  display: grid;
+  &-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+}
+
+@media (min-width: 768px) {
+  .md\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .md\:text-5xl { font-size: 3rem; }
+  .md\:text-7xl { font-size: 4.5rem; }
+}
+
+// --- Dark Mode ---
+body.dark {
+  background-color: $night;
+  color: $foam;
+
+  .bg-foam { background-color: lighten($night, 5%); }
+  .bg-coral { background-color: lighten($night, 2%); }
+  .text-night { color: $foam; }
+  .opacity-80 { opacity: 0.7; }
+  
+  .form-container {
+    background-color: lighten($night, 3%);
+    border-color: rgba($foam, 0.1);
+  }
+  
+  input, textarea {
+    color: $foam;
+    border-color: rgba($foam, 0.2);
+    &:focus { border-color: $primary; }
+  }
+}
