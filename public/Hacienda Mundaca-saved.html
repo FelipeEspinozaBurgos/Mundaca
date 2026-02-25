@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hacienda Mundaca Eco-Tour | Legend & Nature</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0A6B7A', // Deep Ocean Teal
+                        accent: '#A83232',  // Pirate Crimson
+                        eco: '#4A8C4A',     // Sargassum Green
+                        coral: '#F2E8D5',   // Coral Sand
+                        foam: '#F8FCFC',    // Sea Foam
+                        misty: '#8A9AA3',   // Misty Horizon
+                        night: '#1A1A1A',   // Night Ruins Black
+                    },
+                    fontFamily: {
+                        display: ['Montserrat', 'sans-serif'],
+                        body: ['Inter', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'wave-pattern': "url(\"data:image/svg+xml,%3Csvg width='100' height='20' viewBox='0 0 100 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 10 Q25 0 50 10 T100 10' fill='none' stroke='%230A6B7A' stroke-width='2' opacity='0.2'/%3E%3C/svg%3E\")",
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .dark .glass {
+            background: rgba(26, 26, 26, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .wave-underline {
+            position: relative;
+            display: inline-block;
+        }
+        .wave-underline::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 100%;
+            height: 10px;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='20' viewBox='0 0 100 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 10 Q12.5 0 25 10 T50 10 T75 10 T100 10' fill='none' stroke='%23A83232' stroke-width='3'/%3E%3C/svg%3E");
+            background-size: 50px 10px;
+            animation: waveMove 2s linear infinite;
+        }
+        @keyframes waveMove {
+            from { background-position-x: 0; }
+            to { background-position-x: 50px; }
+        }
+        .hero-gradient {
+            background: linear-gradient(to bottom, rgba(10, 107, 122, 0.8), rgba(26, 26, 26, 0.9));
+        }
+        .sidebar-transition {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .header-hide { transform: translateY(-100%); }
+        .header-show { transform: translateY(0); }
+    </style>
+</head>
+<body class="font-body bg-coral dark:bg-night text-night dark:text-foam transition-colors duration-300 overflow-x-hidden">
+
+    <!-- NAVIGATION HEADER -->
+    <header id="main-header" class="fixed top-0 w-full z-50 transition-transform duration-300 header-show">
+        <nav class="mx-auto px-4 py-3 lg:px-8">
+            <div class="glass rounded-full px-6 py-3 flex items-center justify-between shadow-2xl">
+                <!-- Logo & Back -->
+                <div class="flex items-center gap-4">
+                    <button onclick="window.history.back()" class="p-2 hover:bg-misty/20 rounded-full transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" /></svg>
+                    </button>
+                    <span class="font-display font-extrabold text-xl tracking-tighter text-primary dark:text-foam">MUNDACA<span class="text-accent">.</span></span>
+                </div>
+
+                <!-- Desktop Nav -->
+                <div class="hidden lg:flex items-center gap-8 font-display text-sm font-bold uppercase tracking-widest">
+                    <a href="#home" class="hover:text-primary transition-colors flex items-center gap-2"><span class="opacity-50 text-[10px]">01</span> Home</a>
+                    <a href="#about" class="hover:text-primary transition-colors flex items-center gap-2"><span class="opacity-50 text-[10px]">02</span> About</a>
+                    <a href="#activities" class="hover:text-primary transition-colors flex items-center gap-2"><span class="opacity-50 text-[10px]">03</span> Activities</a>
+                    <a href="#sustainability" class="hover:text-primary transition-colors flex items-center gap-2"><span class="opacity-50 text-[10px]">04</span> Eco</a>
+                    <a href="#contact" class="hover:text-primary transition-colors flex items-center gap-2"><span class="opacity-50 text-[10px]">05</span> Contact</a>
+                </div>
+
+                <!-- Controls -->
+                <div class="flex items-center gap-3">
+                    <div class="hidden md:flex items-center glass rounded-full px-3 py-1 border border-misty/30">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+                        <input type="text" placeholder="Search legend..." class="bg-transparent border-none focus:ring-0 text-xs w-24">
+                    </div>
+                    <button id="theme-toggle" class="p-2 bg-primary text-white rounded-full hover:bg-accent transition-all transform hover:rotate-12 shadow-lg">
+                        <svg id="theme-icon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" /></svg>
+                    </button>
+                    <button id="mobile-menu-btn" class="lg:hidden p-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" /></svg>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- MOBILE SIDEBAR -->
+    <div id="mobile-sidebar" class="fixed inset-y-0 left-0 w-80 bg-night z-[60] sidebar-transition -translate-x-full shadow-2xl p-8 flex flex-col">
+        <div class="flex justify-between items-center mb-12">
+            <span class="font-display font-extrabold text-2xl text-foam">MUNDACA<span class="text-accent">.</span></span>
+            <button id="close-sidebar" class="text-foam p-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l18 18" /></svg></button>
+        </div>
+        <div class="space-y-6">
+            <a href="#home" class="mobile-link block text-3xl font-display font-bold text-foam/80 hover:text-primary transition-all">Home</a>
+            <a href="#about" class="mobile-link block text-3xl font-display font-bold text-foam/80 hover:text-primary transition-all">About</a>
+            <a href="#activities" class="mobile-link block text-3xl font-display font-bold text-foam/80 hover:text-primary transition-all">Activities</a>
+            <a href="#sustainability" class="mobile-link block text-3xl font-display font-bold text-foam/80 hover:text-primary transition-all">Eco Focus</a>
+            <a href="#contact" class="mobile-link block text-3xl font-display font-bold text-foam/80 hover:text-primary transition-all">Contact</a>
+        </div>
+        <div class="mt-auto pt-8 border-t border-misty/20">
+            <p class="text-xs text-misty uppercase tracking-widest mb-4">Follow the Adventure</p>
+            <div class="flex gap-4">
+                <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-foam">IG</div>
+                <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-foam">FB</div>
+                <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-foam">YT</div>
+            </div>
+        </div>
+    </div>
+    <div id="sidebar-overlay" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-[55] hidden opacity-0 transition-opacity duration-300"></div>
+
+    <main>
+        <!-- HERO SECTION -->
+        <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
+            <div class="absolute inset-0 z-0">
+                <!-- Using high-contrast SVG patterns and solid backgrounds to simulate premium "Living Museum" vibe without external img assets -->
+                <div class="absolute inset-0 bg-night">
+                    <div class="absolute inset-0 opacity-20 bg-wave-pattern bg-repeat"></div>
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-night via-night/40 to-transparent"></div>
+            </div>
+            
+            <div class="relative z-10 text-center px-4 max-w-5xl mx-auto">
+                <span class="inline-block px-4 py-1 mb-6 rounded-full border border-primary text-primary font-bold text-xs uppercase tracking-[0.3em] bg-primary/10 animate-pulse">Established 1860 | Reborn 2024</span>
+                <h1 class="text-6xl md:text-9xl font-display font-extrabold text-foam mb-6 leading-tight">
+                    HACIENDA <span class="text-primary italic">MUNDACA</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-foam/80 max-w-2xl mx-auto mb-10 font-light leading-relaxed">
+                    Where the legend of a pirate meets the serenity of the Maya landscape. Explore our living museum and eco-haven.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#contact" class="px-10 py-5 bg-primary hover:bg-accent text-white font-display font-bold rounded-lg transition-all transform hover:-translate-y-1 shadow-2xl flex items-center justify-center gap-3">
+                        BOOK YOUR ADVENTURE
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                    </a>
+                    <a href="#about" class="px-10 py-5 glass text-foam hover:bg-foam hover:text-night font-display font-bold rounded-lg transition-all flex items-center justify-center">
+                        DISCOVER THE LEGEND
+                    </a>
+                </div>
+            </div>
+
+            <!-- Scroll Indicator -->
+            <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50">
+                <span class="text-[10px] uppercase tracking-[0.5em] text-foam">Scroll</span>
+                <div class="w-px h-16 bg-gradient-to-b from-primary to-transparent"></div>
+            </div>
+        </section>
+
+        <!-- ABOUT SECTION / DISCOVER THE LEGEND -->
+        <section id="about" class="py-24 px-4 bg-coral dark:bg-night">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid lg:grid-cols-2 gap-16 items-center">
+                    <div class="space-y-8">
+                        <div>
+                            <h2 class="text-primary text-sm font-bold tracking-widest uppercase mb-2">The Heritage</h2>
+                            <h3 class="text-4xl md:text-6xl font-display font-extrabold leading-tight">
+                                A <span class="wave-underline">Legacy</span> Built by Love & Adventure
+                            </h3>
+                        </div>
+                        <p class="text-lg text-misty dark:text-misty leading-relaxed">
+                            Constructed in the late 19th century by the infamous Fermín Mundaca—trader, pirate, and architect—this hacienda was dedicated to a woman known as "La Trigueña." Today, it stands as a testament to history and the enduring beauty of Isla Mujeres.
+                        </p>
+                        
+                        <div class="grid grid-cols-2 gap-6">
+                            <div class="p-6 bg-foam dark:bg-night/50 border border-misty/20 rounded-2xl shadow-sm">
+                                <div class="text-accent font-display text-4xl mb-2">160+</div>
+                                <div class="text-xs font-bold uppercase tracking-wider opacity-60">Years of History</div>
+                            </div>
+                            <div class="p-6 bg-foam dark:bg-night/50 border border-misty/20 rounded-2xl shadow-sm">
+                                <div class="text-eco font-display text-4xl mb-2">100%</div>
+                                <div class="text-xs font-bold uppercase tracking-wider opacity-60">Eco-Conscious</div>
+                            </div>
+                        </div>
+
+                        <a href="#team" class="inline-flex items-center text-primary font-bold hover:gap-4 transition-all group">
+                            MEET OUR TEAM <span class="ml-2 group-hover:translate-x-2 transition-transform">→</span>
+                        </a>
+                    </div>
+                    
+                    <!-- BENTO GRID FOR ABOUT VISUALS -->
+                    <div class="grid grid-cols-6 grid-rows-6 gap-4 h-[600px]">
+                        <div class="col-span-4 row-span-3 bg-primary/20 rounded-3xl overflow-hidden relative group">
+                            <div class="absolute inset-0 flex items-center justify-center font-display font-black text-primary/10 text-8xl">RUINS</div>
+                            <div class="absolute inset-0 bg-gradient-to-tr from-primary/40 to-transparent"></div>
+                            <div class="absolute bottom-6 left-6 text-foam">
+                                <h4 class="font-bold">Ancient Stone Walls</h4>
+                                <p class="text-xs opacity-70">Hand-carved architecture</p>
+                            </div>
+                        </div>
+                        <div class="col-span-2 row-span-4 bg-accent/20 rounded-3xl overflow-hidden relative">
+                             <div class="absolute inset-0 flex items-center justify-center font-display font-black text-accent/10 text-4xl -rotate-90">MYSTERY</div>
+                             <div class="absolute bottom-6 left-6 text-night dark:text-foam">
+                                <h4 class="font-bold">Artifacts</h4>
+                            </div>
+                        </div>
+                        <div class="col-span-3 row-span-3 bg-eco/20 rounded-3xl overflow-hidden relative">
+                            <div class="absolute inset-0 flex items-center justify-center font-display font-black text-eco/10 text-5xl">GARDENS</div>
+                        </div>
+                        <div class="col-span-3 row-span-2 bg-misty/20 rounded-3xl overflow-hidden relative">
+                             <div class="absolute inset-0 flex items-center justify-center font-display font-black text-misty/10 text-3xl">LORE</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TEAM SECTION -->
+        <section id="team" class="py-24 px-4 bg-foam dark:bg-night/80">
+            <div class="max-w-7xl mx-auto text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-display font-extrabold mb-4">The Guardians of the Legend</h2>
+                <p class="text-misty max-w-2xl mx-auto">Our passionate experts are dedicated to preserving the history and ecology of Hacienda Mundaca.</p>
+            </div>
+            <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-8">
+                <!-- Team Card 1 -->
+                <div class="group relative bg-coral dark:bg-night p-8 rounded-3xl shadow-xl border border-misty/10 transition-transform hover:-translate-y-4">
+                    <div class="w-24 h-24 bg-primary rounded-2xl mb-6 mx-auto flex items-center justify-center text-foam text-3xl font-bold">AG</div>
+                    <h4 class="text-xl font-bold mb-1">Ana García</h4>
+                    <p class="text-primary text-sm font-bold uppercase tracking-widest mb-4">Historical Curator</p>
+                    <p class="text-sm opacity-70">Ana has dedicated 15 years to uncovering the hidden letters and architectural secrets of Fermín Mundaca.</p>
+                </div>
+                <!-- Team Card 2 -->
+                <div class="group relative bg-coral dark:bg-night p-8 rounded-3xl shadow-xl border border-misty/10 transition-transform hover:-translate-y-4">
+                    <div class="w-24 h-24 bg-accent rounded-2xl mb-6 mx-auto flex items-center justify-center text-foam text-3xl font-bold">CR</div>
+                    <h4 class="text-xl font-bold mb-1">Carlos Ruiz</h4>
+                    <p class="text-primary text-sm font-bold uppercase tracking-widest mb-4">Lead Expeditionist</p>
+                    <p class="text-sm opacity-70">A former marine biologist, Carlos leads our kayak and bird-watching tours with unmatched local knowledge.</p>
+                </div>
+                <!-- Team Card 3 -->
+                <div class="group relative bg-coral dark:bg-night p-8 rounded-3xl shadow-xl border border-misty/10 transition-transform hover:-translate-y-4">
+                    <div class="w-24 h-24 bg-eco rounded-2xl mb-6 mx-auto flex items-center justify-center text-foam text-3xl font-bold">SV</div>
+                    <h4 class="text-xl font-bold mb-1">Sofía Vargas</h4>
+                    <p class="text-primary text-sm font-bold uppercase tracking-widest mb-4">Sustainability Officer</p>
+                    <p class="text-sm opacity-70">Sofía manages our reforestation programs and ensures our tours leave zero carbon footprint.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ACTIVITIES SECTION -->
+        <section id="activities" class="py-24 px-4 bg-night text-foam overflow-hidden">
+            <div class="max-w-7xl mx-auto">
+                <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+                    <div class="max-w-2xl">
+                        <h2 class="text-eco text-sm font-bold tracking-widest uppercase mb-2">Experiences</h2>
+                        <h3 class="text-5xl md:text-7xl font-display font-extrabold leading-tight">Immersive <span class="text-primary italic">Nature</span> Tours</h3>
+                    </div>
+                    <a href="#contact" class="px-8 py-4 border border-foam/30 rounded-full hover:bg-foam hover:text-night transition-all font-bold">VIEW ALL ACTIVITES</a>
+                </div>
+
+                <div class="space-y-12">
+                    <!-- Activity 1 -->
+                    <div class="group flex flex-col lg:flex-row gap-12 items-center p-8 rounded-[3rem] bg-white/5 border border-white/10 hover:bg-white/10 transition-all">
+                        <div class="w-full lg:w-1/3 aspect-video bg-primary/20 rounded-3xl relative overflow-hidden flex items-center justify-center">
+                            <span class="text-primary font-black text-9xl opacity-20">01</span>
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <svg class="w-24 h-24 text-primary" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71z"/></svg>
+                            </div>
+                        </div>
+                        <div class="w-full lg:w-2/3">
+                            <div class="flex flex-wrap gap-4 mb-6">
+                                <span class="px-4 py-1 rounded-full bg-primary/20 text-primary text-xs font-bold">2.5 Hours</span>
+                                <span class="px-4 py-1 rounded-full bg-accent/20 text-accent text-xs font-bold">Easy</span>
+                                <span class="px-4 py-1 rounded-full bg-eco/20 text-eco text-xs font-bold">Guided</span>
+                            </div>
+                            <h4 class="text-4xl font-display font-bold mb-4">Senderismo Guiado</h4>
+                            <p class="text-misty text-lg mb-8">Walk through the lush jungle paths where Mundaca once roamed. Discover the endemic flora and the ruins of the original stone residence.</p>
+                            <div class="flex items-center gap-6">
+                                <button class="px-8 py-3 bg-primary text-white font-bold rounded-xl hover:bg-accent transition-colors">Book Now</button>
+                                <span class="text-2xl font-display font-bold text-foam">$45 USD</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Activity 2 -->
+                    <div class="group flex flex-col lg:flex-row-reverse gap-12 items-center p-8 rounded-[3rem] bg-white/5 border border-white/10 hover:bg-white/10 transition-all">
+                        <div class="w-full lg:w-1/3 aspect-video bg-accent/20 rounded-3xl relative overflow-hidden flex items-center justify-center">
+                            <span class="text-accent font-black text-9xl opacity-20">02</span>
+                             <div class="absolute inset-0 flex items-center justify-center">
+                                <svg class="w-24 h-24 text-accent" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2c-5.52 0-10 4.48-10 10s4.48 10 10 10 10-4.48 10-10-4.48-10-10-10zm-1 15v-4l-5 2v-4l5-2v-4l8 6-8 6z"/></svg>
+                            </div>
+                        </div>
+                        <div class="w-full lg:w-2/3">
+                            <div class="flex flex-wrap gap-4 mb-6">
+                                <span class="px-4 py-1 rounded-full bg-primary/20 text-primary text-xs font-bold">3 Hours</span>
+                                <span class="px-4 py-1 rounded-full bg-accent/20 text-accent text-xs font-bold">Moderate</span>
+                                <span class="px-4 py-1 rounded-full bg-eco/20 text-eco text-xs font-bold">Water</span>
+                            </div>
+                            <h4 class="text-4xl font-display font-bold mb-4">Kayak en Lagos y Ríos</h4>
+                            <p class="text-misty text-lg mb-8">Navigate the serene waters surrounding the estate. Explore mangrove tunnels and hidden lagoons that served as natural docks for pirate skiffs.</p>
+                            <div class="flex items-center gap-6">
+                                <button class="px-8 py-3 bg-primary text-white font-bold rounded-xl hover:bg-accent transition-colors">Book Now</button>
+                                <span class="text-2xl font-display font-bold text-foam">$65 USD</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SUSTAINABILITY SECTION -->
+        <section id="sustainability" class="py-24 px-4 bg-coral dark:bg-night overflow-hidden relative">
+            <!-- Decorative Pattern -->
+            <div class="absolute top-0 right-0 w-96 h-96 bg-eco/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl"></div>
+            
+            <div class="max-w-7xl mx-auto relative z-10">
+                <div class="text-center mb-16">
+                    <h2 class="text-eco font-display text-5xl md:text-7xl font-extrabold mb-6">Eco-Conscious <span class="text-night dark:text-foam italic">Living</span></h2>
+                    <p class="text-misty max-w-2xl mx-auto text-lg leading-relaxed">We don't just visit the land; we protect it. Our commitment to sustainability is woven into every brick and every tour.</p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Practice 1 -->
+                    <div class="p-10 bg-foam dark:bg-night/50 rounded-[2.5rem] border border-eco/20 shadow-xl group hover:border-eco transition-all">
+                        <div class="w-16 h-16 bg-eco/10 text-eco rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
+                        </div>
+                        <h4 class="text-2xl font-display font-bold mb-4">Low-Impact Tours</h4>
+                        <p class="text-sm opacity-70">Strict visitor limits and designated paths to ensure minimal disruption to the local ecosystem.</p>
+                    </div>
+                    <!-- Practice 2 -->
+                    <div class="p-10 bg-foam dark:bg-night/50 rounded-[2.5rem] border border-eco/20 shadow-xl group hover:border-eco transition-all">
+                        <div class="w-16 h-16 bg-eco/10 text-eco rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
+                        </div>
+                        <h4 class="text-2xl font-display font-bold mb-4">Community Support</h4>
+                        <p class="text-sm opacity-70">80% of our staff are locals from Isla Mujeres, and we source all tour supplies from island artisans.</p>
+                    </div>
+                    <!-- Practice 3 -->
+                    <div class="p-10 bg-foam dark:bg-night/50 rounded-[2.5rem] border border-eco/20 shadow-xl group hover:border-eco transition-all">
+                        <div class="w-16 h-16 bg-eco/10 text-eco rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                        </div>
+                        <h4 class="text-2xl font-display font-bold mb-4">Solar & Water</h4>
+                        <p class="text-sm opacity-70">The hacienda operates on 100% solar energy and uses a sophisticated rainwater harvesting system.</p>
+                    </div>
+                </div>
+
+                <div class="mt-20 flex flex-wrap justify-center gap-12 opacity-50 grayscale hover:grayscale-0 transition-all">
+                    <span class="font-display font-black text-xl">CERTIFICACIÓN ECOTURISMO</span>
+                    <span class="font-display font-black text-xl">SELLO VERDE LOCAL</span>
+                    <span class="font-display font-black text-xl">ALIADOS DE CONSERVACIÓN</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contact" class="py-24 px-4 bg-night text-foam relative">
+            <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-20">
+                <div>
+                    <h2 class="text-5xl md:text-7xl font-display font-extrabold mb-8">Ready to <span class="text-primary italic">Explore?</span></h2>
+                    <p class="text-misty text-xl mb-12">Contact our adventure coordinators to book a private tour or customize your visit to the Mundaca estate.</p>
+                    
+                    <div class="space-y-8">
+                        <div class="flex items-center gap-6">
+                            <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                            </div>
+                            <div>
+                                <h5 class="font-bold">Email Us</h5>
+                                <p class="text-misty">reservations@haciendamundaca.eco</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-6">
+                            <div class="w-12 h-12 bg-accent rounded-full flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                            </div>
+                            <div>
+                                <h5 class="font-bold">Call Us</h5>
+                                <p class="text-misty">+52 (998) 123-4567</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-6">
+                            <div class="w-12 h-12 bg-eco rounded-full flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                            </div>
+                            <div>
+                                <h5 class="font-bold">Visit Us</h5>
+                                <p class="text-misty">Carretera Garrafón Km 3.5, Isla Mujeres, Quintana Roo, Mexico</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass p-10 rounded-[3rem] shadow-2xl">
+                    <form id="contact-form" class="space-y-6">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="space-y-2">
+                                <label class="text-xs font-bold uppercase tracking-widest opacity-60">Full Name</label>
+                                <input type="text" required class="w-full bg-foam/10 border-white/20 rounded-xl px-4 py-3 focus:ring-primary focus:border-primary">
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-xs font-bold uppercase tracking-widest opacity-60">Email Address</label>
+                                <input type="email" required class="w-full bg-foam/10 border-white/20 rounded-xl px-4 py-3 focus:ring-primary focus:border-primary">
+                            </div>
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-xs font-bold uppercase tracking-widest opacity-60">Subject</label>
+                            <select class="w-full bg-foam/10 border-white/20 rounded-xl px-4 py-3 focus:ring-primary focus:border-primary">
+                                <option class="bg-night">General Inquiry</option>
+                                <option class="bg-night">Book a Tour</option>
+                                <option class="bg-night">Private Events</option>
+                                <option class="bg-night">Sustainability Workshops</option>
+                            </select>
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-xs font-bold uppercase tracking-widest opacity-60">Your Message</label>
+                            <textarea rows="4" required class="w-full bg-foam/10 border-white/20 rounded-xl px-4 py-3 focus:ring-primary focus:border-primary"></textarea>
+                        </div>
+                        <button type="submit" class="w-full py-4 bg-primary hover:bg-accent text-white font-display font-bold rounded-xl transition-all flex items-center justify-center gap-3">
+                            SEND MESSAGE
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5l7 7-7 7M5 5l7 7-7 7"/></svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Map Placeholder Representation -->
+            <div class="max-w-7xl mx-auto mt-24 h-96 bg-misty/10 rounded-[3rem] border border-white/10 relative overflow-hidden flex items-center justify-center">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-primary rounded-full animate-bounce mx-auto flex items-center justify-center mb-4">
+                         <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    </div>
+                    <p class="font-display font-bold text-xl">Isla Mujeres, Quintana Roo</p>
+                    <p class="text-sm opacity-50">Interact with map to get directions</p>
+                </div>
+                <div class="absolute inset-0 bg-wave-pattern opacity-10 pointer-events-none"></div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // --- Navigation Logic ---
+        const header = document.getElementById('main-header');
+        let lastScroll = 0;
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            if (currentScroll <= 0) {
+                header.classList.remove('header-hide');
+                return;
+            }
+            if (currentScroll > lastScroll && !header.classList.contains('header-hide')) {
+                // Scroll down
+                header.classList.add('header-hide');
+            } else if (currentScroll < lastScroll && header.classList.contains('header-hide')) {
+                // Scroll up
+                header.classList.remove('header-hide');
+            }
+            lastScroll = currentScroll;
+        });
+
+        // --- Mobile Menu Toggle ---
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const closeSidebar = document.getElementById('close-sidebar');
+        const sidebar = document.getElementById('mobile-sidebar');
+        const overlay = document.getElementById('sidebar-overlay');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        const toggleMenu = () => {
+            const isOpen = !sidebar.classList.contains('-translate-x-full');
+            if (isOpen) {
+                sidebar.classList.add('-translate-x-full');
+                overlay.classList.add('opacity-0');
+                setTimeout(() => overlay.classList.add('hidden'), 300);
+            } else {
+                sidebar.classList.remove('-translate-x-full');
+                overlay.classList.remove('hidden');
+                setTimeout(() => overlay.classList.remove('opacity-0'), 10);
+            }
+        };
+
+        mobileMenuBtn.addEventListener('click', toggleMenu);
+        closeSidebar.addEventListener('click', toggleMenu);
+        overlay.addEventListener('click', toggleMenu);
+        mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
+
+        // --- Dark Mode Logic ---
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const html = document.documentElement;
+
+        themeToggle.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            const isDark = html.classList.contains('dark');
+            themeIcon.innerHTML = isDark 
+                ? '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 9H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />'
+                : '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />';
+        });
+
+        // --- Form Simulation ---
+        const contactForm = document.getElementById('contact-form');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const btn = contactForm.querySelector('button');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = 'MESSAGE SENT!';
+            btn.classList.replace('bg-primary', 'bg-eco');
+            contactForm.reset();
+            setTimeout(() => {
+                btn.innerHTML = originalText;
+                btn.classList.replace('bg-eco', 'bg-primary');
+            }, 3000);
+        });
+
+        // --- Smooth Section Active Highlighting ---
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('header a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('text-primary');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('text-primary');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
