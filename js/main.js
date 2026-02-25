@@ -1,131 +1,103 @@
 /**
- * Hacienda Mundaca Eco-Tour - Core Interactivity
- * Focus: Modern 2026 Aesthetic, Brand Consistency & UX
+ * MUNDACA ECO-TOUR - Lógica Principal
  */
 
-document.addEventListener('DOMContentLoaded', () => {
-    initThemeToggle();
-    initHeaderScroll();
-    initFormHandling();
-    initNavigationHighlighter();
+document.addEventListener('componentsLoaded', () => {
+    initTheme();
+    initNavigation(); // Maneja Scroll + Resaltado de página actual
+    initMobileMenu();
+    initContactForm();
 });
 
-/**
- * --- Dark / Light Mode Toggle ---
- * Manages the visual state and persists user preference.
- */
-function initThemeToggle() {
-    const body = document.body;
-    // Note: The toggle button is part of the header fragment. 
-    // We use event delegation or wait for the fragment to load in load-components.js
-    // For main.js, we define the logic.
-    
-    window.toggleTheme = () => {
-        body.classList.toggle('dark');
-        const isDark = body.classList.contains('dark');
-        localStorage.setItem('mundaca-theme', isDark ? 'dark' : 'light');
-        updateToggleIcons(isDark);
-    };
+// 1. GESTIÓN DE TEMA
+function initTheme() {
+    const savedTheme = localStorage.getItem('mundaca-theme') || 'light';
+    document.body.classList.add(`theme-${savedTheme}`);
+    updateThemeIcons(savedTheme === 'dark');
+}
 
-    // Apply saved theme
-    if (localStorage.getItem('mundaca-theme') === 'dark') {
-        body.classList.add('dark');
+window.toggleTheme = () => {
+    const isDark = document.body.classList.toggle('theme-dark');
+    const theme = isDark ? 'dark' : 'light';
+    document.body.classList.toggle('theme-light', !isDark);
+    localStorage.setItem('mundaca-theme', theme);
+    updateThemeIcons(isDark);
+};
+
+function updateThemeIcons(isDark) {
+    const sun = document.getElementById('sun-icon');
+    const moon = document.getElementById('moon-icon');
+    if (sun && moon) {
+        sun.classList.toggle('hidden', isDark);
+        moon.classList.toggle('hidden', !isDark);
     }
 }
 
-function updateToggleIcons(isDark) {
-    const sunIcon = document.getElementById('sun-icon');
-    const moonIcon = document.getElementById('moon-icon');
-    if (sunIcon && moonIcon) {
-        if (isDark) {
-            sunIcon.classList.add('hidden');
-            moonIcon.classList.remove('hidden');
-        } else {
-            sunIcon.classList.remove('hidden');
-            moonIcon.classList.add('hidden');
-        }
-    }
-}
-
-/**
- * --- Header Scroll Logic ---
- * Implements the "hidden scrolling" and glassmorphism effect.
- */
-function initHeaderScroll() {
+// 2. NAVEGACIÓN INTELIGENTE (Highlight & Scroll)
+function initNavigation() {
     const header = document.querySelector('header');
-    let lastScroll = 0;
-
-    window.addEventListener('scroll', () => {
-        if (!header) return;
-        
-        const currentScroll = window.pageYOffset;
-
-        // Add glassmorphism background when scrolled
-        if (currentScroll > 50) {
-            header.classList.add('bg-foam/80', 'backdrop-blur-md', 'shadow-sm');
-        } else {
-            header.classList.remove('bg-foam/80', 'backdrop-blur-md', 'shadow-sm');
-        }
-
-        // Hide/Show on scroll direction
-        if (currentScroll > lastScroll && currentScroll > 200) {
-            header.style.transform = 'translateY(-100%)';
-        } else {
-            header.style.transform = 'translateY(0)';
-        }
-        lastScroll = currentScroll;
-    });
-}
-
-/**
- * --- Form Handling ---
- * Replicates the elegant feedback from saved.html
- */
-function initFormHandling() {
-    const contactForm = document.getElementById('contact-form');
-    if (!contactForm) return;
-
-    contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const submitBtn = contactForm.querySelector('button[type="submit"]');
-        const originalText = submitBtn.innerHTML;
-
-        // Visual Feedback
-        submitBtn.innerHTML = 'MESSAGE SENT!';
-        submitBtn.style.backgroundColor = '#4A8C4A'; // eco green
-        
-        contactForm.reset();
-
-        setTimeout(() => {
-            submitBtn.innerHTML = originalText;
-            submitBtn.style.backgroundColor = ''; // revert to scss primary
-        }, 4000);
-    });
-}
-
-/**
- * --- Navigation Highlighter ---
- * Subtle underline/color transition for the active section.
- */
-function initNavigationHighlighter() {
-    const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('nav a');
+    const currentPath = window.location.pathname;
 
+    // A. Resaltar página actual por URL
+    navLinks.forEach(link => {
+        const linkPath = link.getAttribute('href');
+        // Si la URL coincide con el href, marcamos como activo
+        if (currentPath.includes(linkPath) && linkPath !== 'index.html') {
+            link.classList.add('active');
+        } else if (currentPath === '/' || currentPath.endsWith('index.html')) {
+            if (linkPath === 'index.html') link.classList.add('active');
+        }
+    });
+
+    // B. Efecto Scroll Header
     window.addEventListener('scroll', () => {
-        let current = '';
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            if (pageYOffset >= (sectionTop - 200)) {
-                current = section.getAttribute('id');
-            }
-        });
+        if (window.scrollY > 50) {
+            header?.classList.add('header-scrolled');
+        } else {
+            header?.classList.remove('header-scrolled');
+        }
+    });
+}
 
-        navLinks.forEach(link => {
-            link.classList.remove('text-primary');
-            if (link.getAttribute('href').includes(current) && current !== '') {
-                link.classList.add('text-primary');
-            }
+// 3. MENÚ MÓVIL (Con Accesibilidad ARIA)
+function initMobileMenu() {
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const nav = document.querySelector('nav');
+
+    if (menuBtn && nav) {
+        menuBtn.addEventListener('click', () => {
+            const isOpened = nav.classList.toggle('mobile-active');
+            menuBtn.setAttribute('aria-expanded', isOpened);
+            // Bloquear scroll del body al abrir menú
+            document.body.style.overflow = isOpened ? 'hidden' : '';
         });
+    }
+}
+
+// 4. FORMULARIO CON FEEDBACK REAL
+function initContactForm() {
+    const form = document.getElementById('quick-contact-form');
+    if (!form) return;
+
+    form.addEventListener('submit', (e) => {
+        const btn = form.querySelector('button[type="submit"]');
+        const originalText = btn.innerHTML;
+        
+        btn.disabled = true;
+        btn.innerHTML = 'ENVIANDO...';
+
+        // Simulamos éxito (el mailto se abrirá después)
+        setTimeout(() => {
+            btn.innerHTML = '¡MENSAJE LISTO!';
+            btn.style.backgroundColor = '#4A8C4A'; // Verde eco
+            
+            setTimeout(() => {
+                btn.disabled = false;
+                btn.innerHTML = originalText;
+                btn.style.backgroundColor = '';
+                form.reset();
+            }, 3000);
+        }, 800);
     });
 }

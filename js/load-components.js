@@ -6,7 +6,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Paths are relative to the root for Netlify deployment
     const headerPath = '/components/header.html';
-    const footerPath = '/components/footer.html';
+    const footerPath = '/componen';
 
     // Load Header
     fetch(headerPath)
