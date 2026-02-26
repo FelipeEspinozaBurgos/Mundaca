@@ -1,49 +1,29 @@
 /**
- * Hacienda Mundaca Eco-Tour - Fragment Loader
- * Ensures consistent Header and Footer across the multi-page static site.
+ * Carga de componentes asíncrona.
+ * Ajustado para funcionar desde cualquier nivel de directorio.
  */
+async function loadComponent(id, path) {
+    try {
+        // Usamos la ruta absoluta desde la raíz para evitar errores en subpáginas
+        const response = await fetch(path);
+        if (!response.ok) throw new Error(`No se pudo cargar: ${path}`);
+        const html = await response.text();
+        const container = document.getElementById(id);
+        if (container) {
+            container.innerHTML = html;
+        }
+    } catch (err) {
+        console.warn("Error cargando componente:", err);
+    }
+}
 
-document.addEventListener('DOMContentLoaded', () => {
-    // Paths are relative to the root for Netlify deployment
-    const headerPath = '/components/header.html';
-    const footerPath = '/componen';
+document.addEventListener('DOMContentLoaded', async () => {
+    // Definimos las rutas exactas de tus componentes
+    await Promise.all([
+        loadComponent('header-placeholder', '/components/header.html'),
+        loadComponent('footer-placeholder', '/components/footer.html')
+    ]);
 
-    // Load Header
-    fetch(headerPath)
-        .then(response => {
-            if (!response.ok) throw new Error('Failed to load header');
-            return response.text();
-        })
-        .then(data => {
-            const placeholder = document.getElementById('header-placeholder');
-            if (placeholder) {
-                placeholder.innerHTML = data;
-                
-                // Once header is loaded, initialize theme icons from main.js state
-                if (typeof updateToggleIcons === 'function') {
-                    const isDark = document.body.classList.contains('dark');
-                    updateToggleIcons(isDark);
-                }
-
-                // Re-run mobile menu listeners if defined in main.js
-                if (typeof initHeaderScroll === 'function') {
-                    initHeaderScroll();
-                }
-            }
-        })
-        .catch(err => console.error('Mundaca Error (Header):', err));
-
-    // Load Footer
-    fetch(footerPath)
-        .then(response => {
-            if (!response.ok) throw new Error('Failed to load footer');
-            return response.text();
-        })
-        .then(data => {
-            const placeholder = document.getElementById('footer-placeholder');
-            if (placeholder) {
-                placeholder.innerHTML = data;
-            }
-        })
-        .catch(err => console.error('Mundaca Error (Footer):', err));
+    // Avisamos a main.js que ya puede actuar sobre el Header/Footer
+    document.dispatchEvent(new Event('componentsLoaded'));
 });
