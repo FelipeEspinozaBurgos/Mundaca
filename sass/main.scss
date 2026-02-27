@@ -88,7 +88,9 @@ h3 { color: $sargassumgreen; font-size: 1.8rem; margin: 2.5rem 0 1rem; }
 // ==========================================================================
 // UTILIDADES DE LAYOUT Y TEXTO (Nuevas para el Landing)
 // ==========================================================================
-.container {  max-width: $max-width;  margin: 0 auto;  padding: 0 5%;}
+.container {  max-width: $max-width;  margin: 0 auto;  padding: .5rem;  /* reduce horizontal padding to avoid overflow */
+  @media (min-width: $bp-tablet) { padding: 0 5%; }  /* restore original spacing on larger screens */
+}
 .section-padding { padding: 100px 0; 
   @media (max-width: $bp-tablet) { padding: 60px 0; }}// Espaciado vertical para secciones
 .text-center { text-align: center; }
@@ -101,11 +103,11 @@ h3 { color: $sargassumgreen; font-size: 1.8rem; margin: 2.5rem 0 1rem; }
   gap: 4rem;
   align-items: center;
 
-  @media (min-width: $bp-desktop) {
+  @media (min-width: $bp-desktop) {// En desktop, se divide en dos columnas iguales
     grid-template-columns: 1fr 1fr;
     &.reverse {
       direction: rtl;
-      .content-side, .about-text-content { direction: ltr; }
+      .content-side, .about-text-content { direction: ltr;  }
     }
   }
 }
@@ -652,6 +654,17 @@ h3 { color: $sargassumgreen; font-size: 1.8rem; margin: 2.5rem 0 1rem; }
 @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } } //pulse animation for box
 .animate-pulse { animation: pulse 2s infinite; }
 
+/* make native <video> elements responsive to container width */
+video {
+  margin: 0 auto;
+  padding: 0;
+  max-width: clamp(90%, 90%, 100%);
+  display: block;
+  border-radius: 16px
+  
+  
+
+}
 
 video::-webkit-media-controls-current-time-display,//nuevo estilo para contador de tiempo actual del video
 video::-webkit-media-controls-time-remaining-display {

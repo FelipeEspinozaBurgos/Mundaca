@@ -64,7 +64,13 @@ h3 {
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 5%;
+  padding: 0.5rem; /* reduce horizontal padding to avoid overflow */
+  /* restore original spacing on larger screens */
+}
+@media (min-width: 768px) {
+  .container {
+    padding: 0 5%;
+  }
 }
 
 .section-padding {
@@ -854,6 +860,15 @@ h3 {
 }
 .animate-pulse {
   animation: pulse 2s infinite;
+}
+
+/* make native <video> elements responsive to container width */
+video {
+  margin: 0 auto;
+  padding: 0;
+  max-width: 90%;
+  display: block;
+  border-radius: 16px;
 }
 
 video::-webkit-media-controls-current-time-display,
