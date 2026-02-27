@@ -64,14 +64,25 @@ function initNavigation() {
 // 3. MENÚ MÓVIL (Con Accesibilidad ARIA)
 function initMobileMenu() {
     const menuBtn = document.getElementById('mobile-menu-btn');
-    const nav = document.querySelector('nav');
+    // Apunta específicamente a la navegación principal del header
+    const nav = document.querySelector('.desktop-nav');
 
     if (menuBtn && nav) {
         menuBtn.addEventListener('click', () => {
             const isOpened = nav.classList.toggle('mobile-active');
             menuBtn.setAttribute('aria-expanded', isOpened);
+            menuBtn.classList.toggle('open', isOpened);
             // Bloquear scroll del body al abrir menú
             document.body.style.overflow = isOpened ? 'hidden' : '';
+        });
+
+        // Cerrar con Escape por accesibilidad
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && nav.classList.contains('mobile-active')) {
+                nav.classList.remove('mobile-active');
+                menuBtn.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+            }
         });
     }
 }

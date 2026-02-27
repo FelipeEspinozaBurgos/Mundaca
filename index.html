@@ -16,7 +16,8 @@
 </head>
 <body class="theme-light"> <div id="header-placeholder"></div>
   <main class="landing-presentation">
-    <section id="home" class="hero-section"><!-- SECCION HERO -->
+    <!-- 0 -->
+    <section id="home" class="hero-section">
       <div class="hero-background"></video></div>
       <div class="hero-overlay"></div>
 
@@ -46,9 +47,7 @@
       </div>
     </section>
 
-
-
-<!-- 1 -->
+    <!-- 1 -->
     <section id="about-preview" class="about-section section-padding">
       <div class="container grid-split">
         <div class="about-text-content" >
@@ -81,9 +80,8 @@
       </div>
     </section>
 
-
-<!-- 2 -->
-<section id="team" class="team-section section-padding bg-alt">
+    <!-- 2 -->
+    <section id="team" class="team-section section-padding bg-alt">
       <div class="container text-center">
         <h2 class="section-title">Discover the Legend of Fermín Mundaca</h2>
         <p class="body-text centered">The story of Fermín Mundaca <i>a seafarer whose life inspired tales of piracy and romance</i>lives on at Hacienda Mundaca. Settling on Isla Mujeres, he built an impressive estate reflecting his ambition and vision. Today, we honor that history through the "Shadows of Mundaca" historical tour and the captivating nocturnal "Mundaca Show," a narrative performance that brings his intriguing life to life under the stars. Explore the origins of this Caribbean legend and its enduring mystery.</p>
@@ -100,9 +98,8 @@
       </div>
     </section>
 
-
-<!-- 3  -->
-<section id="experiencias" class="section-padding">
+    <!-- 3  -->
+    <section id="experiencias" class="section-padding">
   <div class="container">
     <div class="text-center mt-large">
       <h2 class="section-title">Our Experiences: Day Tour and Night Tour</h2>
@@ -142,10 +139,10 @@
       <a href="activities.html" class="btn btn-primary btn-large">Choose Your Experience</a>
     </div>
   </div>
-</section>
+    </section>
 
-<!-- 4 -->
-<section id="sustainability-preview" class="sustainability-section section-padding relative-overflow">
+    <!-- 4 -->
+    <section id="sustainability-preview" class="sustainability-section section-padding relative-overflow">
       <div class="decor-blob bg-eco-blur"></div>
       <div class="container">
         <div class="text-center">
@@ -187,8 +184,8 @@
       </div>
     </section>
 
-<!-- 5 -->
-<section class="section-padding">
+    <!-- 5 -->
+    <section class="section-padding">
   <div class="container text-center">
     <h2 class="section-title">Why Visit Hacienda Mundaca Eco-Tour?</h2>
     <p class="body-text centered mt-large">Visiting Hacienda Mundaca delivers meaningful benefits for you and Isla Mujeres:</p>
@@ -200,18 +197,63 @@
       <li>Participate in environmental education that raises awareness for future generations.</li>
     </ul>
   </div>
-</section>
+    </section>
 
+    <!-- 6 -->
+    <section id="contact-preview" class="contact-cta-section section-padding bg-dark text-light">
+      <div class="container grid-split">
+        <div class="contact-info-wrap">
+          <h2 class="section-title" >Ready to <span class="highlight-italic color-primary">explore?</span></h2>
+          <p class="body-text">Be part of this 2026 transformation. Reserve your day or night experience at Hacienda Mundaca Eco-Tour—where history meets sustainability.</p>
 
+          <div class="contact-details-list">
+            <div class="contact-item">
+              <div class="icon-circle bg-primary"><svg class="icon-contact" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"></path></svg></div>
+              <div>
+                <h5>E-mail</h5>
+                <p>info@haciendamundaca.com</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="icon-circle bg-accent"><svg class="icon-contact" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"></path></svg></div>
+              <div>
+                <h5>Phone</h5>
+                <p>+52 (998) 337-4019</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="icon-circle bg-accent"><svg class="icon-contact" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path></svg></div>
+              <div>
+                <h5>Visit us</h5>
+                <p>Garrafón Highway Km 3.5, Isla Mujeres, Quintana Roo, Mexico</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="contact-form-card bg-glass">
+          <form id="quick-contact-form" class="custom-form" action="/submit-reserva" method="post">
+            <div class="form-group">
+              <label>Full Name</label>
+              <input type="text" required placeholder="Your Name">
+            </div>
+            <div class="form-group">
+              <label>E-mail</label>
+              <input type="email" required placeholder="your@email.com">
+            </div>
+            <div class="form-group">
+              <label>Short Message</label>
+              <textarea rows="3" required placeholder="How can we help you?"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full">SEND MESSAGE</button>
+          </form>
+          <div class="text-center mt-small">
+            <a href="contact.html" class="link-muted text-small">Live the Legend!</a>
+          </div>
+        </div>
+      </div>
+    </section>
 
-
-
-
-
-
-
-<!-- 2 -->
-    <section id="team" class="team-section section-padding bg-alt">
+    <!-- <section id="team" class="team-section section-padding bg-alt">
       <div class="container text-center">
         <h2 class="section-title">Los Guardianes de la Leyenda</h2>
         <p class="body-text centered">Nuestros expertos apasionados están dedicados a preservar la historia y ecología de Hacienda Mundaca.</p>
@@ -237,9 +279,9 @@
           </div>
         </div>
       </div>
-    </section>
-<!-- 3 -->
-    <section id="activities-preview" class="activities-section section-padding bg-dark text-light">
+    </section> -->
+
+    <!-- <section id="activities-preview" class="activities-section section-padding bg-dark text-light">
       <div class="container">
         <div class="section-header-split">
           <div>
@@ -288,9 +330,9 @@
           </div>
         </div>
       </div>
-    </section>
-<!-- 4 -->
-    <section id="sustainability-preview" class="sustainability-section section-padding relative-overflow">
+    </section> -->
+
+    <!-- <section id="sustainability-preview" class="sustainability-section section-padding relative-overflow">
       <div class="decor-blob bg-eco-blur"></div>
 
       <div class="container">
@@ -323,63 +365,14 @@
           </a>
         </div>
       </div>
-    </section>
-    <section id="contact-preview" class="contact-cta-section section-padding bg-dark text-light"><!-- // Contacto directo con íconos-->
-      <div class="container grid-split">
-        <div class="contact-info-wrap">
-          <h2 class="section-title" >¿Listo para <span class="highlight-italic color-primary">Explorar?</span></h2>
-          <p class="body-text">Asegura tu lugar en la aventura pirata más sostenible de Isla Mujeres. Contáctanos para reservas o tours personalizados.</p>
-
-          <div class="contact-details-list">
-            <div class="contact-item">
-              <div class="icon-circle bg-primary"><svg class="icon-contact" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"></path></svg></div>
-              <div>
-                <h5>Email</h5>
-                <p>info@haciendamundaca.com</p>
-              </div>
-            </div>
-            <div class="contact-item">
-              <div class="icon-circle bg-accent"><svg class="icon-contact" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"></path></svg></div>
-              <div>
-                <h5>Teléfono</h5>
-                <p>+52 (998) 123-4567</p>
-              </div>
-            </div>
-            <div class="contact-item">
-              <div class="icon-circle bg-accent"><svg class="icon-contact" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path></svg></div>
-              <div>
-                <h5>Visit us</h5>
-                <p>Carretera Garrafón Km 3.5, Isla Mujeres, Quintana Roo, México</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="contact-form-card bg-glass">
-          <form id="quick-contact-form" class="custom-form">
-            <div class="form-group">
-              <label>Nombre Completo</label>
-              <input type="text" required placeholder="Tu nombre">
-            </div>
-            <div class="form-group">
-              <label>Correo Electrónico</label>
-              <input type="email" required placeholder="tu@email.com">
-            </div>
-            <div class="form-group">
-              <label>Mensaje Breve</label>
-              <textarea rows="3" required placeholder="¿En qué podemos ayudarte?"></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary btn-full">ENVIAR MENSAJE</button>
-          </form>
-          <div class="text-center mt-small">
-            <a href="contact.html" class="link-muted text-small">Ir a la página de contacto completo</a>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="section-padding bg-alt"><!-- Map Placeholder-->
-      <div class="container">
-        <div class="map-frame">
+    </section> -->
+    
+    <!-- Map Placeholder-->
+    <section class="section-padding bg-alt">
+      <div class="container text-center">
+        <h2 class="section-title">Find Us at Isla Mujeres</h2>
+        <p class="body-text centered mt-large">Hacienda Mundaca is located on Garrafón Highway, Km 3.5, easily accessible and ready to welcome you.</p>
+        <div class="map-frame mt-large">
           <iframe
             width="100%" height="450" style="border:0; border-radius: 24px;"
             loading="lazy" allowfullscreen
