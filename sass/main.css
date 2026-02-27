@@ -38,6 +38,15 @@ body.theme-dark .section-title, body.theme-dark h2 {
 body.theme-dark .body-text {
   color: #8A9AA3;
 }
+body.theme-dark h3 {
+  color: #F8FCFC;
+}
+body.theme-dark td {
+  color: #F8FCFC;
+}
+body.theme-dark .color-dark {
+  color: #F8FCFC;
+}
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "Montserrat", system-ui, sans-serif;
@@ -56,7 +65,7 @@ h2 {
 }
 
 h3 {
-  color: #4A8C4A;
+  color: #1A1A1A;
   font-size: 1.8rem;
   margin: 2.5rem 0 1rem;
 }
@@ -157,11 +166,11 @@ h3 {
 }
 
 .hero-title {
-  font-size: clamp(2rem, 8vw, 7rem);
+  font-size: clamp(3rem, 8vw, 7rem);
   font-weight: 800;
   color: #F8FCFC;
   margin-bottom: 1.5rem;
-  line-height: 1.1;
+  line-height: 1;
 }
 
 .highlight-italic {
@@ -175,7 +184,7 @@ h3 {
   margin: 0 auto 3rem;
   font-weight: 400;
   opacity: 0.9;
-  color: #F2E8D5;
+  color: #F8FCFC;
 }
 
 .eyebrow-text {
@@ -358,6 +367,12 @@ h3 {
   font-family: "Montserrat", system-ui, sans-serif;
   color: #F8FCFC;
 }
+@media (max-width: 480px) {
+  .badge-outline {
+    font-size: 0.6rem;
+    padding: 4px 12px;
+  }
+}
 
 .link-arrow {
   display: inline-flex;
@@ -384,6 +399,40 @@ h3 {
   color: #F8FCFC;
 }
 
+/* small modal for image preview */
+.img-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(26, 26, 26, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.img-modal.open {
+  visibility: visible;
+  opacity: 1;
+}
+
+.img-modal img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 16px;
+}
+
+.img-modal .close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 2rem;
+  color: #F8FCFC;
+  cursor: pointer;
+}
+
 .hero-section {
   position: relative;
   height: 100vh;
@@ -397,13 +446,13 @@ h3 {
 .hero-section .hero-background {
   position: absolute;
   inset: 0;
-  background: url("https://picsum.photos/id/1015/2000/1200") center/cover no-repeat;
+  background: url("/assets/images/the-entrance.png") center/cover no-repeat;
   z-index: 1;
 }
 .hero-section .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, rgba(10, 107, 122, 0.8), rgba(26, 26, 26, 0.9));
+  background: linear-gradient(to bottom, rgba(10, 107, 122, 0.6), rgba(26, 26, 26, 0.8));
   z-index: 2;
 }
 .hero-section .hero-content {
@@ -546,6 +595,13 @@ h3 {
 }
 .team-grid .team-card:hover {
   transform: translateY(-10px);
+}
+.team-grid .team-card img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  margin: 0 auto;
 }
 .team-grid .team-card .avatar {
   width: 80px;
@@ -843,7 +899,7 @@ h3 {
   background: white;
   padding: 22px 28px;
   margin-bottom: 18px;
-  border-left: 6px solid #4A8C4A;
+  border-left: 6px solid #0A6B7A;
   border-radius: 0 6px 6px 0;
   box-shadow: 0 4px 15px rgba(26, 26, 26, 0.08);
   font-size: 1.1rem;

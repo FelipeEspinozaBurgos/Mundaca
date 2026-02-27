@@ -7,6 +7,7 @@ document.addEventListener('componentsLoaded', () => {
     initNavigation(); // Maneja Scroll + Resaltado de página actual
     initMobileMenu();
     initContactForm();
+    initImageModal();
 });
 
 // 1. GESTIÓN DE TEMA
@@ -99,5 +100,33 @@ function initContactForm() {
                 form.reset();
             }, 3000);
         }, 800);
+    });
+}
+
+// 5. IMAGE MODAL
+function initImageModal() {
+    const modal = document.getElementById('imgModal');
+    if (!modal) return;
+    const modalImg = modal.querySelector('img');
+    const closeBtn = modal.querySelector('.close-btn');
+
+    document.querySelectorAll('.team-card img, .previewable').forEach(img => {
+        img.style.cursor = 'pointer';
+        img.addEventListener('click', () => {
+            modalImg.src = img.src;
+            modal.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        });
+    });
+
+    closeBtn.addEventListener('click', () => {
+        modal.classList.remove('open');
+        document.body.style.overflow = '';
+    });
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.classList.remove('open');
+            document.body.style.overflow = '';
+        }
     });
 }

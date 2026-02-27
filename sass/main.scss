@@ -72,6 +72,9 @@ body.theme-dark {
   .bg-alt { background: lighten($nightruins, 5%); }
   .section-title, h2 { color: $seafoam;  }
   .body-text { color: $mistyhorizon; }
+  h3{ color: $seafoam; }
+  td{ color: $seafoam; }
+  .color-dark { color: $seafoam; }
 }
 
 // Tipografía Base (Mantenida por consistencia con otras páginas)
@@ -82,7 +85,7 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 { font-size: 3.6rem; margin-bottom: 0.5rem; }
 h2 { color: $deepocean; font-size: 3.2rem; margin-bottom: 1rem; }
-h3 { color: $sargassumgreen; font-size: 1.8rem; margin: 2.5rem 0 1rem; }
+h3 { color: $nightruins; font-size: 1.8rem; margin: 2.5rem 0 1rem; }
 
 
 // ==========================================================================
@@ -129,11 +132,11 @@ h3 { color: $sargassumgreen; font-size: 1.8rem; margin: 2.5rem 0 1rem; }
 
 // Tipografía específica del Landing
 .hero-title {
-  font-size: clamp(2rem, 8vw, 7rem);
+  font-size: clamp(3rem, 8vw, 7rem);
   font-weight: 800;
   color: $seafoam;
   margin-bottom: 1.5rem;
-  line-height: 1.1;
+  line-height: 1;
 }
 
 .highlight-italic {
@@ -147,7 +150,7 @@ h3 { color: $sargassumgreen; font-size: 1.8rem; margin: 2.5rem 0 1rem; }
   margin: 0 auto 3rem;
   font-weight: 400;
   opacity: 0.9;
-  color: $coralsand;
+  color: $seafoam;
 }
 
 .eyebrow-text {
@@ -270,6 +273,10 @@ h3 { color: $sargassumgreen; font-size: 1.8rem; margin: 2.5rem 0 1rem; }
   margin-bottom: 2rem;
   font-family: $font-primary;
   color: $seafoam;
+   @media(max-width: $bp-mobile) {
+    font-size: 0.6rem;
+    padding: 4px 12px;
+  }
 }
 
 
@@ -297,6 +304,39 @@ h3 { color: $sargassumgreen; font-size: 1.8rem; margin: 2.5rem 0 1rem; }
 // SECCIONES DEL LANDING (index.html)
 // ==========================================================================
 // 1. Hero Section
+
+/* small modal for image preview */
+.img-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba($nightruins, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.img-modal.open {
+  visibility: visible;
+  opacity: 1;
+}
+.img-modal img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 16px;
+}
+.img-modal .close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 2rem;
+  color: $seafoam;
+  cursor: pointer;
+}
+
+// 1. Hero Section
 .hero-section {
   position: relative;
   height: 100vh;
@@ -309,13 +349,13 @@ h3 { color: $sargassumgreen; font-size: 1.8rem; margin: 2.5rem 0 1rem; }
   .hero-background {
     position: absolute;
     inset: 0;
-    background: url('https://picsum.photos/id/1015/2000/1200') center/cover no-repeat;
+    background: url('/assets/images/the-entrance.png') center/cover no-repeat;
     z-index: 1;
   }
   .hero-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to bottom, rgba($deepocean, 0.8), rgba($nightruins, 0.9));
+    background: linear-gradient(to bottom, rgba($deepocean, 0.6), rgba($nightruins, 0.8));
     z-index: 2;
   }
   .hero-content {
@@ -413,6 +453,13 @@ h3 { color: $sargassumgreen; font-size: 1.8rem; margin: 2.5rem 0 1rem; }
     transition: transform 0.3s;
     text-align: center;
      &:hover { transform: translateY(-10px); }
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 8px;
+      margin: 0 auto;
+    }
     .avatar {
       width: 80px;
       height: 80px;
@@ -642,7 +689,7 @@ h3 { color: $sargassumgreen; font-size: 1.8rem; margin: 2.5rem 0 1rem; }
     background: white;
     padding: 22px 28px;
     margin-bottom: 18px;
-    border-left: 6px solid $sargassumgreen;
+    border-left: 6px solid $deepocean;
     border-radius: 0 6px 6px 0;
     box-shadow: 0 4px 15px rgba($nightruins, 0.08);
     font-size: 1.1rem;
