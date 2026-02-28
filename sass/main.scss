@@ -61,7 +61,7 @@ body {
 }
 .body-text {
   font-size: 1.15rem;
-  color: $mistyhorizon;
+  color: $seafoam;
   max-width: 600px;
   &.centered {
     margin: 0 auto;
@@ -76,6 +76,65 @@ body.theme-dark {
   h3{ color: $seafoam; }
   td{ color: $seafoam; }
   .color-dark { color: $seafoam; }
+  
+  // contact form styles for dark theme
+  .contact-form-card {
+    background: rgba($seafoam, 0.05);
+    .form-group {
+      label { color: rgba($seafoam, 0.6); }
+      input, textarea {
+        background: rgba($seafoam, 0.1);
+        border: 1px solid rgba($seafoam, 0.2);
+        color: $seafoam;
+        &::placeholder { color: rgba($seafoam, 0.4); }
+      }
+    }
+  }
+  .contact-sidebar {
+    .info-group h3 { color: $seafoam; }
+    .info-text { color: $mistyhorizon; }
+    .social-icons .icon-circle { background-color: lighten($deepocean, 10%); color: $seafoam; }
+  }
+  // additional dark theme footer & header icons
+  .footer-social .icon-circle,
+  .header-actions .icon-circle,
+  .desktop-nav .nav-social .icon-circle { background-color: lighten($deepocean, 10%); color: $seafoam; }
+  .eyebrow-text{ color: $deepocean; }
+}
+
+body.theme-light {
+  background: $seafoam;
+  color: $nightruins;
+  
+  .section-title, h2 { color: $deepocean; }
+  .body-text { color: $nightruins; span{color: $seafoam; }}
+  h3 { color: $deepocean; }
+  td { color: $nightruins; }
+  
+  // footer social icon adjustments
+  .footer-social .icon-circle,
+  .header-actions .icon-circle,
+  .desktop-nav .nav-social .icon-circle { background-color: white; color: $nightruins; }
+  
+  // contact form styles for light theme
+  .contact-form-card {
+    background: white;
+    box-shadow: 0 10px 40px rgba($deepocean, 0.1);
+    .form-group {
+      label { color: $deepocean; }
+      input, textarea {
+        background: rgba($deepocean, 0.05);
+        border: 1px solid rgba($deepocean, 0.2);
+        color: $nightruins;
+        &:focus { border-color: $piratecrimson; }
+        &::placeholder { color: rgba($nightruins, 0.4); }
+      }
+    }
+  }
+  .contact-sidebar {
+    .info-group h3 { color: $deepocean; }
+    .info-group p, .info-text { color: $nightruins; }
+  }
 }
 
 // Tipografía Base (Mantenida por consistencia con otras páginas)
@@ -198,7 +257,7 @@ h3 { color: $nightruins; font-size: 1.8rem; margin: 2.5rem 0 1rem; }
 
 .header-flex { display: flex; justify-content: space-between; align-items: center;
   // nav ocupa espacio restante para empujar acciones a la derecha
-  nav { flex: 1; text-align: center; }
+  nav { flex: 1; text-align: start; }
 }
 
 
@@ -232,6 +291,13 @@ h3 { color: $nightruins; font-size: 1.8rem; margin: 2.5rem 0 1rem; }
     a {      font-size: 0.85rem; font-weight: 600; text-transform: uppercase; color: $seafoam; opacity: 0.8;
       &:hover, &.active { opacity: 1; color: $sargassumgreen; }
     }
+    .nav-social {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .nav-social .icon-circle { width: 2rem; height: 2rem; }
   }
 }
 
@@ -274,11 +340,14 @@ h3 { color: $nightruins; font-size: 1.8rem; margin: 2.5rem 0 1rem; }
     display: block;
     padding: 0.75rem 1rem;
     border-radius: 8px;
+  }
+  .nav-social { margin-top: 1rem; }
+
     color: $seafoam;
     font-weight: 700;
     &:hover { background: rgba($seafoam, 0.03); color: $sargassumgreen; }
   }
-}
+
 
 // Footer
 .main-footer {
@@ -298,6 +367,15 @@ h3 { color: $nightruins; font-size: 1.8rem; margin: 2.5rem 0 1rem; }
   }
   .footer-label { font-family: $font-primary; font-weight: 700; margin-bottom: 1.5rem; text-transform: uppercase; font-size: 0.8rem; color: $mistyhorizon; }
   a { display: block; margin-bottom: 0.8rem; font-size: 0.9rem; opacity: 0.7; &:hover { opacity: 1; transform: translateX(5px); } }
+
+  .footer-social .social-icons { justify-content: start; }
+  .footer-social .icon-circle { background-color: lighten($deepocean, 15%); color: $seafoam; width: 2rem; height: 2rem; }
+
+  /* header social icons (small circles in header-actions) */
+  .header-actions .social-icons { gap: 1rem; }
+  .header-actions .icon-circle { width: 2rem; height: 2rem; }
+  .header-actions .social-icons a:hover .icon-circle { transform: translateY(-2px); box-shadow: 0 4px 12px rgba($nightruins,0.1); }
+
 
 
 .btn {// Botones base
@@ -371,7 +449,7 @@ h3 { color: $nightruins; font-size: 1.8rem; margin: 2.5rem 0 1rem; }
 .link-muted {
   color: $mistyhorizon;
   text-decoration: underline;
-  &:hover { color: $seafoam; }
+  &:hover { color: $deepocean; }
 }
 
 
@@ -694,37 +772,69 @@ h3 { color: $nightruins; font-size: 1.8rem; margin: 2.5rem 0 1rem; }
       }
     }
   }
-  
-  .contact-form-card {
-    padding: 3rem;
-    border-radius: 2.5rem;
-    .form-group {
-      margin-bottom: 1.5rem;
-         label {
-        display: block;
-        font-size: 0.75rem;
-        font-family: $font-primary;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
-        color: rgba($seafoam, 0.6);
-        margin-bottom: 0.5rem;
-      }
-      input, textarea {
-        width: 100%;
-        background: rgba($seafoam, 0.1);
-        border: 1px solid rgba($seafoam, 0.2);
-        border-radius: 12px;
-        padding: 14px 20px;
-        color: $seafoam;
-        font-family: $font-secondary;
-        transition: border-color 0.3s;
-        &:focus { outline: none; border-color: $deepocean; }
-        &::placeholder { color: rgba($seafoam, 0.4); }
-      }
+}
+
+// Contact Form Card (Independent - works in all pages)
+.contact-form-card {
+  padding: 3rem;
+  border-radius: 2.5rem;
+  transition: background 0.3s, box-shadow 0.3s;
+  .form-group {
+    margin-bottom: 1.5rem;
+    label {
+      display: block;
+      font-size: 0.75rem;
+      font-family: $font-primary;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.5rem;
+      transition: color 0.3s;
+    }
+    input, textarea {
+      width: 100%;
+      border-radius: 12px;
+      padding: 14px 20px;
+      font-family: $font-secondary;
+      transition: background 0.3s, border-color 0.3s, color 0.3s;
+      &:focus { outline: none; }
+      resize: vertical;
     }
   }
 }
+
+// social icon row used in contact sidebar
+.social-icons {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 0.5rem;
+}
+.social-icons a {
+  display: inline-block;
+}
+/* base icon circle size (override nested contact detail size) */
+.icon-circle {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.icon-contact img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.social-icons .icon-circle {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.social-icons a:hover .icon-circle {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba($nightruins, 0.1);
+}
+
 
 
 // ==========================================================================

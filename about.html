@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nuestra Historia | Hacienda Mundaca Eco-Tour</title>
+  <title>Our History | Hacienda Mundaca Eco-Tour</title>
   <link rel="stylesheet" href="/sass/main.css">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
@@ -12,81 +12,84 @@
   <div id="header-placeholder"></div>
 
   <main class="page-about">
-    
-    <section class="hero-subpage bg-dark text-light">
-      <div class="container">
-        <span class="eyebrow-text color-primary">La Leyenda de Fermín</span>
-        <h1 class="section-title">Sobre <span class="highlight-italic">Nosotros</span></h1>
-        <p class="body-text">Uniendo el pasado pirata con el futuro sostenible de Isla Mujeres.</p>
+    <!-- hero already uses only existing classes -->
+    <section class="hero-subpage bg-dark text-light section-padding">
+      <div class="container" style="padding: 60px;">
+        <span class="eyebrow-text color-primary">The Legend of Fermín</span>
+        <h1 class="section-title">About <span class="highlight-italic">Us</span></h1>
+        <p class="body-text">Bridging pirate heritage with the sustainable future of Isla Mujeres.</p>
       </div>
     </section>
 
+    <!-- historical background with grid-split -->
     <section class="section-padding">
       <div class="container grid-split">
-        <div class="image-frame">
-          <div class="aspect-ratio-box bg-misty-light">
-            <span class="watermark-large">1860</span>
-          </div>
+        <div class="activity-image bg-misty-light">
+          <span class="activity-number color-accent">1860</span>
         </div>
-        
-        <div class="content-side">
-          <h2 class="section-title">El Trasfondo <span class="wave-underline">Histórico</span></h2>
+        <div class="about-text-content">
+          <h2 class="section-title">The Historical Background</h2>
           <p class="body-text">
-            Sumérgete en la intrigante vida de <strong>Fermín Mundaca</strong>, el legendario pirata cuya existencia estuvo marcada por la aventura, un amor no correspondido y una muerte misteriosa. 
+            Dive into the intriguing life of <strong>Fermín Mundaca</strong>, the legendary pirate whose existence was marked by adventure, unrequited love, and a mysterious death.
           </p>
           <p class="body-text mt-small">
-            Nuestros tours guiados y shows temáticos reviven esta historia a través de narraciones, artefactos y elementos interactivos entre las ruinas originales de lo que alguna vez fue su refugio más preciado.
+            Our guided tours and themed shows rekindle this story through storytelling, artifacts, and interactive elements among the original ruins of his once-beloved retreat.
           </p>
         </div>
       </div>
     </section>
 
+    <!-- unique approach using activity-cards for features -->
     <section class="section-padding bg-alt">
-      <div class="container">
-        <div class="text-center">
-          <h2 class="section-title">Nuestro Enfoque <span class="color-primary">Único</span></h2>
-          <p class="body-text centered">Fusionamos educación y entretenimiento para crear conciencia ambiental.</p>
+      <div class="container text-center">
+        <h2 class="section-title">Our Unique Approach</h2>
+        <p class="body-text centered">We blend education and entertainment to build environmental awareness.</p>
+      </div>
+      <div class="container grid-split mt-large">
+        <div class="activity-card">
+          <div class="activity-image bg-misty-light">
+            <span class="activity-number color-accent">01</span>
+          </div>
+          <div class="activity-details">
+            <h4>Edu-Entertainment</h4>
+            <p class="body-text">We don’t just give facts; we tell stories that make you part of the ecosystem.</p>
+          </div>
         </div>
-
-        <div class="features-row mt-large">
-          <div class="feature-item">
-            <span class="feature-num">01.</span>
-            <h4>Edu-Entretenimiento</h4>
-            <p>No solo damos datos; contamos historias que te hacen parte del ecosistema.</p>
+        <div class="activity-card">
+          <div class="activity-image bg-misty-light">
+            <span class="activity-number color-accent">02</span>
           </div>
-          <div class="feature-item">
-            <span class="feature-num">02.</span>
-            <h4>Acción Real</h4>
-            <p>Cada visitante participa en la conservación directa de la Hacienda.</p>
+          <div class="activity-details">
+            <h4>Real Action</h4>
+            <p class="body-text">Each visitor participates directly in the preservation of the Hacienda.</p>
           </div>
-          <div class="feature-item">
-            <span class="feature-num">03.</span>
-            <h4>Grupos Íntimos</h4>
-            <p>Limitamos el aforo para garantizar una experiencia de bajo impacto.</p>
+        </div>
+        <div class="activity-card">
+          <div class="activity-image bg-misty-light">
+            <span class="activity-number color-accent">03</span>
+          </div>
+          <div class="activity-details">
+            <h4>Intimate Groups</h4>
+            <p class="body-text">We limit capacity to ensure a low‑impact experience.</p>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- what sets us apart using existing bg-primary-light and btn classes -->
     <section class="section-padding">
       <div class="container">
-        <div class="card-large bg-primary text-light">
-          <div class="card-content">
-            <h2 class="section-title text-light">Lo que Nos <span class="highlight-italic">Diferencia</span></h2>
-            <p class="body-text text-light">
-              Con grupos reducidos, experiencias personalizadas y un compromiso real con la sostenibilidad, nuestros tours destacan en el panorama turístico de Cancún. Atraemos a viajeros conscientes que buscan aventuras auténticas más allá de las playas tradicionales.
-            </p>
-            <div class="mt-large">
-              <a href="activities.html" class="btn btn-outline-light">EXPLORA NUESTRAS ACTIVIDADES</a>
-            </div>
-          </div>
-          <div class="card-visual">
-             <div class="eco-badge">100% Sostenible</div>
+        <div class="bg-primary-light section-padding">
+          <h2 class="section-title">What Sets Us Apart</h2>
+          <p class="body-text">
+            With small groups, personalized experiences, and a genuine sustainability commitment, our tours stand out in the Cancún tourism scene. We appeal to conscious travelers seeking authentic adventures beyond traditional beaches.
+          </p>
+          <div class="mt-large">
+            <a href="activities.html" class="btn btn-primary">Explore Our Activities</a>
           </div>
         </div>
       </div>
     </section>
-
   </main>
 
   <div id="footer-placeholder"></div>

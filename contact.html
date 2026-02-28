@@ -1,104 +1,172 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contacto y Reservas | Hacienda Mundaca Eco-Tour</title>
+  <title>Contact & Bookings | Hacienda Mundaca Eco-Tour</title>
   <link rel="stylesheet" href="/sass/main.css">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body class="theme-light">
-
   <div id="header-placeholder"></div>
-
   <main class="page-contact">
-    
-    <section class="hero-subpage bg-dark text-light">
-      <div class="container">
-        <span class="eyebrow-text color-accent">Inicia tu aventura</span>
-        <h1 class="section-title">Contacta con <span class="highlight-italic">Nosotros</span></h1>
-        <p class="body-text">Reserva tu lugar en la leyenda. Respondemos en menos de 24 horas.</p>
+    <!-- 1 -->
+    <section class="hero-subpage bg-dark text-light section-padding" >
+      <div class="container" style="padding: 60px 5% 5% 10px;">
+        <span class="eyebrow-text color-accent">Start Your Adventure</span>
+        <h1 class="section-title">Get in <span class="highlight-italic">Touch</span></h1>
+        <p class="body-text"><span>Book your Eco-Adventure at Hacienda Mundaca</span></p>
       </div>
     </section>
-
+    <!-- 2 -->
     <section class="section-padding">
       <div class="container grid-split">
+        <div>
+          <h2 class="section-title">Visit Us</h2>
+          <p class="body-text">Come explore Hacienda Mundaca in person. Located in the heart of Isla Mujeres, Quintana Roo, our restored eco-historical site awaits with its iconic arch, trails, and stories waiting to be discovered.</p>
+        </div>
+
+        <div>
+          <ul class="sustain-list">
+            <li><strong>Address:</strong> Hacienda Mundaca, Isla Mujeres, Quintana Roo, Mexico (approx. coordinates: 21.217° N, -86.731° W – middle of the island)</li>
+            <li><strong>How to Get There:</strong> Arrive by ferry to Isla Mujeres (from Puerto Juárez or Hotel Zone in Cancún), then take a taxi, rent a golf cart, or bike south along the main road (Carretera a Garrafón). The site is easily accessible from downtown.</li>
+            <li><strong>Hours:</strong> Day tours and visits: mornings to late afternoon; Night show: evenings (check current schedule via form or email).</li>
+            <li><strong>Recommendations:</strong> Wear comfortable shoes for trails, bring eco-friendly sunscreen and water, and respect the natural surroundings.</li>
+          </ul>
+        </div>
         
+      </div>
+    </section>
+    <!-- 3 formulario, redes, -->
+    <section id="book-now" class="section-padding" >
+      <div class="container grid-split">
         <div class="contact-sidebar">
           <div class="info-group">
-            <span class="eyebrow-text color-primary">Información de Reservas</span>
-            <h3>Planifica tu <span class="color-primary">Visita</span></h3>
-            <p class="body-text">Recomendamos reservar con anticipación debido a nuestros límites de aforo eco-responsables.</p>
+            <span class="eyebrow-text color-primary">Booking Information</span>
+            <h3>Plan Your <span class="color-primary">Visit</span></h3>
+            <p class="body-text">Join us in bringing back to life the legendary Hacienda Mundaca on Isla Mujeres. Whether you're ready to book the "Shadows of Mundaca" historical tour, experience the evening "Mundaca Show" narrating the captivating story of Fermín Mundaca, participate in environmental education activities, or explore investment opportunities in sustainable tourism, we're here to welcome you.</p>
           </div>
 
           <div class="info-group mt-large">
-            <span class="eyebrow-text color-primary">Visítanos</span>
-            <h3>Ubicación <span class="color-primary">Estratégica</span></h3>
-            <p class="body-text">
-              Carretera Punta Sur Km 5, Isla Mujeres, Quintana Roo.<br>
-              <em>Te enviaremos indicaciones precisas al confirmar tu reserva.</em>
-            </p>
+            <h3>Reservation <span class="color-primary"> Information</span></h3>
+            <p class="body-text">Discover how easy it is to book your spot on our sustainable experiences. We also offer special packages that combine tours, relaxation areas, and educational workshops focused on ecology and responsible practices.</p>
           </div>
 
           <div class="social-links-wrap mt-large">
-            <p class="eyebrow-text">Síguenos</p>
-            <div class="social-icons">...</div>
+            <p class="eyebrow-text">Follow Us</p>
+            <div class="social-icons">
+              <a href="https://facebook.com/mundaca" target="_blank" rel="noopener" aria-label="Facebook">
+                <span class="icon-circle">
+                  <span class="icon-contact"><img src="/assets/favicon/facebook.png" alt=""></span>
+                </span>
+              </a>
+              <a href="https://instagram.com/mundaca" target="_blank" rel="noopener" aria-label="Instagram">
+                <span class="icon-circle">
+                  <span class="icon-contact"><img src="/assets/favicon/instagram.png" alt=""></span>
+                </span>
+              </a>
+              <a href="https://twitter.com/mundaca" target="_blank" rel="noopener" aria-label="Twitter">
+                <span class="icon-circle">
+                  <span class="icon-contact"><img src="/assets/favicon/gorjeo.png" alt=""></span>
+                </span>
+              </a>
+            </div>
           </div>
         </div>
 
-        <div class="contact-form-container glass-effect shadow-large">
-          <form id="quick-contact-form" action="mailto:info@haciendamundaca.com" method="post" enctype="text/plain">
+        <div class="contact-form-card bg-glass">
+          <form id="quick-contact-form" class="custom-form" action="mailto:pili.9888@gmail.com" method="post" enctype="text/plain">
             <div class="form-group">
-              <label for="name">Nombre Completo</label>
-              <input type="text" id="name" name="Nombre" placeholder="Ej. Fermín Mundaca" required>
+              <label for="name">Full Name</label>
+              <input type="text" id="name" name="Nombre" placeholder="e.g. Fermín Mundaca" required>
             </div>
 
             <div class="form-group">
-              <label for="email">Correo Electrónico</label>
-              <input type="email" id="email" name="Email" placeholder="tu@email.com" required>
-            </div>
-
-            <div class="grid-form-2">
-              <div class="form-group">
-                <label for="date">Fecha Preferida</label>
-                <input type="text" id="date" name="Fecha" placeholder="DD/MM/AAAA">
-              </div>
-              <div class="form-group">
-                <label for="people">Personas</label>
-                <input type="number" id="people" name="Personas" placeholder="1-10">
-              </div>
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="Email" placeholder="you@example.com" required>
             </div>
 
             <div class="form-group">
-              <label for="message">Detalles del Tour</label>
-              <textarea id="message" name="Mensaje" rows="5" placeholder="¿Qué tour te interesa (Día/Noche)? ¿Alguna duda especial?" required></textarea>
+              <label for="date">Preferred Date</label>
+              <input type="text" id="date" name="Fecha" placeholder="DD/MM/YYYY">
+            </div>
+            <div class="form-group">
+              <label for="people">People</label>
+              <input type="number" id="people" name="Personas" placeholder="1-10">
+            </div>
+
+            <div class="form-group">
+              <label for="message">Tour Details</label>
+              <textarea id="message" name="Mensaje" rows="5" placeholder="Which tour are you interested in (Day/Night)? Any special questions?" required></textarea>
             </div>
 
             <button type="submit" class="btn btn-primary btn-full">
-              ENVIAR MENSAJE
+              SEND MESSAGE
             </button>
           </form>
         </div>
-
       </div>
     </section>
-<!-- Map Placeholder -->
+    <!-- Map Placeholder -->
     <section class="section-padding bg-alt">
-      <div class="container">
-        <div class="map-frame">
-          <iframe 
-            width="100%" height="450" style="border:0; border-radius: 24px;" 
-            loading="lazy" allowfullscreen 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3589.656!2d-86.732!3d21.232!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjHCsDEzJzU1LjIiTiA4NsKwNDMnNTUuMiJX!5e0!3m2!1ses!2smx!4v123456789">
-          </iframe>
+    <div class="container">
+      <div class="map-frame">
+        <iframe 
+          width="100%" height="450" style="border:0; border-radius: 24px;" 
+          loading="lazy" allowfullscreen 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3589.656!2d-86.732!3d21.232!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjHCsDEzJzU1LjIiTiA4NsKwNDMnNTUuMiJX!5e0!3m2!1ses!2smx!4v123456789">
+        </iframe>
+      </div>
+    </div>
+    </section>
+    <!-- 4 -->
+    <section id="inversionistas" class="section-padding bg-alt">
+  <div class="container">
+    <h2 class="section-title">Proposal for Investors</h2>
+    <p class="body-text">Be part of an innovative sustainable tourism model in the Mexican Caribbean. This project requires a total investment capacity to fully restore and operate the Hacienda Mundaca as a self-sustaining eco-historical park. It offers estimated returns through high-value experiences, local employment generation, and long-term environmental benefits (detailed financial analysis available upon request).</p>
+    <ul class="sustain-list mt-large">
+      <li>
+        <strong>Full Project Capacity</strong><br>
+        2,500,000 MXN – Restoration + operations, ROI via tours/shows, community impact, sustainability leadership.
+      </li>
+    </ul>
+
+    <div class="contact-form-card bg-glass mt-large">
+      <form id="investor-form" class="custom-form">
+        <div class="form-group">
+          <label for="investment">I'm Interested in Investing</label>
+          <textarea id="investment" rows="4" placeholder="Tell us about your interest..."></textarea>
         </div>
+        <button type="submit" class="btn btn-primary btn-full">I Want to Invest</button>
+      </form>
+    </div>
+  </div>
+    </section>   
+    <section id="about-preview" class="about-section section-padding">
+      <div class="container grid-split">
+        <div class="about-text-content" >
+          <h2 class="section-title">
+            We're <span class="wave-underline">Ready</span> to Welcome You!
+          </h2>
+          <p class="body-text">
+            Whether for a memorable tour, the enchanting Mundaca Show, or to explore partnership opportunities, your journey with us supports the legend that lives on. Reserve your experience today or connect as an investor — together we preserve history, protect nature, and build a brighter future for Isla Mujeres.
+          </p>
+
+          <div class="mt-large">
+      <a href="#book-now" class="btn btn-primary">Book Your Tour Now</a>
+      <a href="#inversionistas" class="link-arrow">Contact Us as an Investor<span class="arrow">→</span></a>
+      
+    </div>
+        </div>
+        <div class="container" style="margin: 0;" padding="0"><!-- // Video de presentación del tour -->
+            <video src="/assets/video/tiktok-video-mundaca-tour.mp4" autoplay controls  loading="lazy"></video>
+          </div>
+          
+          <p class="body-text mt-large primary-text"><em style="font-size: 2rem;">The legend that the Caribbean never forgets.</em></p>
       </div>
     </section>
-
   </main>
-
   <div id="footer-placeholder"></div>
-
   <script src="/js/load-components.js"></script>
   <script src="/js/main.js"></script>
 </body>
