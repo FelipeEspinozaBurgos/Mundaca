@@ -101,6 +101,8 @@ body.theme-dark {
   .desktop-nav .nav-social .icon-circle { background-color: lighten($deepocean, 10%); color: $seafoam; }
   .eyebrow-text{ color: $deepocean; }
   
+  .stat-number{ color: $nightruins; }
+  .stat-card .stat-label{ color: $nightruins; }
   
 }
 
@@ -801,6 +803,122 @@ h3 { color: $nightruins; font-size: 1.8rem; margin: 2.5rem 0 1rem; }
     object-fit: cover;
     display: block;
   }
+}
+
+/* ==========================================================================
+   COMPONENTES PREMIUM (ESTILO 2 / DISEÑO BRUTAL)
+   ========================================================================== */
+
+// 1. visual-side: El contenedor maestro para medios en grids asimétricos
+.visual-side {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  width: 100%;
+  
+  @media (min-width: 1024px) { // $bp-desktop [cite: 3]
+    height: 100%;
+    padding: 2rem;
+  }
+
+  // Efecto de profundidad para las imágenes dentro
+  img, .media-content {
+    border-radius: 40px;
+    box-shadow: 0 30px 60px rgba(26, 26, 26, 0.12); // $nightruins [cite: 2, 44]
+    transition: transform 0.5s ease;
+    
+    &:hover {
+      transform: scale(1.02) translateY(-5px);
+    }
+  }
+}
+
+// 2. eco-illustration-box: Contenedor decorativo para elementos eco
+.eco-illustration-box {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  background: rgba(74, 140, 74, 0.05); // rgba($sargassumgreen, 0.05) [cite: 1]
+  border-radius: 40px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(74, 140, 74, 0.1); // $sargassumgreen [cite: 1]
+
+  // Patrón de olas de fondo inyectado del Estilo 1
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    @include pattern-wave; // [cite: 4, 5]
+    opacity: 0.15;
+    z-index: 0;
+  }
+}
+
+// 3. floating-badge: Las etiquetas que aparecen "flotando" en las capturas
+.floating-badge {
+  position: absolute;
+  padding: 12px 24px;
+  @include glass-effect; // Estilo Premium con Blur [cite: 5]
+  border-radius: 100px;
+  font-family: 'Montserrat', sans-serif; // $font-primary [cite: 3]
+  font-weight: 800;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #0A6B7A; // $deepocean [cite: 1]
+  z-index: 10;
+  box-shadow: 0 15px 30px rgba(26, 26, 26, 0.08); // $nightruins [cite: 2, 57]
+  
+  // Variantes de posición comunes en el diseño brutal
+  &.pos-tr { top: -15px; right: -15px; }
+  &.pos-bl { bottom: 30px; left: -20px; }
+  
+  // Animación sutil de levitación
+  animation: float-slow 4s ease-in-out infinite;
+}
+
+// 4. check-list: Listas de beneficios con íconos personalizados
+.check-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 1.5rem; // $mt-small [cite: 12]
+
+  li {
+    position: relative;
+    padding-left: 40px;
+    margin-bottom: 1rem;
+    font-family: 'Inter', sans-serif; // $font-secondary [cite: 3]
+    color: #8A9AA3; // $mistyhorizon [cite: 3, 19]
+    font-size: 1.05rem;
+    display: flex;
+    align-items: center;
+
+    &::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      width: 26px;
+      height: 26px;
+      background: rgba(74, 140, 74, 0.15); // $bg-eco-light [cite: 1, 15]
+      color: #4A8C4A; // $sargassumgreen [cite: 1]
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 0.75rem;
+    }
+  }
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
 }
 
 // 6. Contact CTA
