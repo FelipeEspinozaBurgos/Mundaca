@@ -36,7 +36,7 @@ body.theme-dark {
 body.theme-dark .bg-alt {
   background: rgb(38.75, 38.75, 38.75);
 }
-body.theme-dark .section-title, body.theme-dark h2 {
+body.theme-dark .section-title, body.theme-dark h2, body.theme-dark span {
   color: #F8FCFC;
 }
 body.theme-dark .body-text {
@@ -133,6 +133,13 @@ body.theme-light .contact-sidebar .info-group h3 {
 }
 body.theme-light .contact-sidebar .info-group p, body.theme-light .contact-sidebar .info-text {
   color: #1A1A1A;
+}
+body.theme-light .impact-content h2 {
+  color: #F8FCFC;
+  font-weight: 900;
+}
+body.theme-light .impact-content p {
+  color: #F8FCFC;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -274,6 +281,14 @@ h3 {
   color: #F8FCFC;
 }
 
+.hero-subpage {
+  padding: 160px 0 80px;
+  text-align: center;
+}
+.hero-subpage .section-title {
+  color: #F8FCFC;
+}
+
 .eyebrow-text {
   font-family: "Montserrat", system-ui, sans-serif;
   font-size: 0.85rem;
@@ -301,11 +316,20 @@ h3 {
   bottom: -5px;
   width: 100%;
   height: 10px;
-  background-position-x: 0;
   background-image: url("data:image/svg+xml,%3Csvg width='100' height='20' viewBox='0 0 100 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 10 Q12.5 0 25 10 T50 10 T75 10 T100 10' fill='none' stroke='%23A83232' stroke-width='3'/%3E%3C/svg%3E");
   background-size: 50px 10px;
+  /* slide the pattern horizontally to create a continuous wave motion */
+  animation: wave 2s linear infinite;
 }
 
+@keyframes wave {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 50px 0;
+  }
+}
 .main-header {
   position: fixed;
   top: 0;
@@ -680,13 +704,13 @@ a:hover {
 .hero-section .hero-background {
   position: absolute;
   inset: 0;
-  background: url("/assets/images/the-entrance.png") center/cover no-repeat;
+  background: url("/assets/images/show_pirata_mundaca.png") center/cover no-repeat;
   z-index: 1;
 }
 .hero-section .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, rgba(10, 107, 122, 0.6), rgba(26, 26, 26, 0.8));
+  background: linear-gradient(to bottom, rgba(10, 107, 122, 0.6), rgba(26, 26, 26, 0.9));
   z-index: 2;
 }
 .hero-section .hero-content {
@@ -960,6 +984,21 @@ a:hover {
   margin-bottom: 1rem;
 }
 
+.amenities-box {
+  padding: 4rem;
+  border-radius: 40px;
+  background: rgba(248, 252, 252, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(248, 252, 252, 0.1);
+  background: rgba(10, 107, 122, 0.03);
+}
+.amenities-box .amenities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+}
+
 .sustainability-section {
   position: relative;
   overflow: hidden;
@@ -1023,6 +1062,71 @@ a:hover {
 .sustainability-section .sustainability-grid .eco-card p {
   font-size: 0.9rem;
   color: #8A9AA3;
+}
+
+.eco-features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+.eco-features-grid .eco-step-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 20px;
+  border: 1px solid rgba(74, 140, 74, 0.1);
+  text-align: center;
+  transition: 0.3s;
+}
+.eco-features-grid .eco-step-card:hover {
+  border-color: #4A8C4A;
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(26, 26, 26, 0.08);
+}
+
+.impact-banner {
+  background: #0A6B7A;
+  border-radius: 16px;
+  padding: 1.5rem;
+  color: #F8FCFC;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+  align-items: center;
+}
+.impact-banner .impact-stats {
+  display: flex;
+  gap: 2rem;
+}
+.impact-banner .impact-stats .stat-val {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #F8FCFC;
+}
+.impact-banner .activity-image,
+.impact-banner .impact-media {
+  flex: 0 0 100%;
+}
+.impact-banner .impact-content {
+  flex: 1 1 100%;
+}
+@media (min-width: 768px) {
+  .impact-banner {
+    flex-wrap: nowrap;
+  }
+  .impact-banner .activity-image,
+  .impact-banner .impact-media {
+    flex: 0 0 45%;
+  }
+  .impact-banner .impact-content {
+    flex: 1 1 55%;
+  }
+}
+.impact-banner .impact-media img,
+.impact-banner .activity-image img {
+  width: 100%;
+  border-radius: 16px;
+  object-fit: cover;
+  display: block;
 }
 
 .contact-cta-section .contact-info-wrap .contact-details-list {
@@ -1125,6 +1229,24 @@ a:hover {
 .social-icons a:hover .icon-circle {
   transform: translateY(-3px);
   box-shadow: 0 6px 20px rgba(26, 26, 26, 0.1);
+}
+
+.features-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+.features-row .feature-item {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(26, 26, 26, 0.08);
+}
+.features-row .feature-item .feature-num {
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: #A83232;
+  display: block;
 }
 
 .map-container {

@@ -71,7 +71,7 @@ body {
 body.theme-dark {
   background: $nightruins; color: $nightruins;
   .bg-alt { background: lighten($nightruins, 5%); }
-  .section-title, h2 { color: $seafoam;  }
+  .section-title, h2, span { color: $seafoam;  }
   .body-text { color: $mistyhorizon; }
   h3{ color: $seafoam; }
   td{ color: $seafoam; }
@@ -100,6 +100,8 @@ body.theme-dark {
   .header-actions .icon-circle,
   .desktop-nav .nav-social .icon-circle { background-color: lighten($deepocean, 10%); color: $seafoam; }
   .eyebrow-text{ color: $deepocean; }
+  
+  
 }
 
 body.theme-light {
@@ -135,6 +137,9 @@ body.theme-light {
     .info-group h3 { color: $deepocean; }
     .info-group p, .info-text { color: $nightruins; }
   }
+  .impact-content{
+    h2{color: $seafoam; font-weight: 900; }
+    p{ color: $seafoam; }}
 }
 
 // Tipografía Base (Mantenida por consistencia con otras páginas)
@@ -213,6 +218,8 @@ h3 { color: $nightruins; font-size: 1.8rem; margin: 2.5rem 0 1rem; }
   color: $seafoam;
 }
 
+.hero-subpage { padding: 160px 0 80px; text-align: center; .section-title { color: $seafoam; } }
+
 .eyebrow-text {
   font-family: $font-primary;
   font-size: 0.85rem;
@@ -233,15 +240,22 @@ h3 { color: $nightruins; font-size: 1.8rem; margin: 2.5rem 0 1rem; }
 
 
 // Animación Subrayado Ola
+// Subrayado Ola
 .wave-underline {
-  position: relative;
-  display: inline-block;
-  
-  &::after {    content: '';    position: absolute;    left: 0;    bottom: -5px;    width: 100%;    height: 10px;    background-position-x: 0;
+  position: relative; display: inline-block;
+  &::after {
+    content: ''; position: absolute; left: 0; bottom: -5px; width: 100%; height: 10px;
     background-image: url("data:image/svg+xml,%3Csvg width='100' height='20' viewBox='0 0 100 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 10 Q12.5 0 25 10 T50 10 T75 10 T100 10' fill='none' stroke='%23A83232' stroke-width='3'/%3E%3C/svg%3E");
     background-size: 50px 10px;
-    
+    /* slide the pattern horizontally to create a continuous wave motion */
+    animation: wave 2s linear infinite;
   }
+}
+
+// keyframes for the underline wave movement
+@keyframes wave {
+  from { background-position: 0 0; }
+  to   { background-position: 50px 0; }
 }
 
 
@@ -502,13 +516,13 @@ h3 { color: $nightruins; font-size: 1.8rem; margin: 2.5rem 0 1rem; }
   .hero-background {
     position: absolute;
     inset: 0;
-    background: url('/assets/images/the-entrance.png') center/cover no-repeat;
+    background: url('/assets/images/show_pirata_mundaca.png') center/cover no-repeat;
     z-index: 1;
   }
   .hero-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to bottom, rgba($deepocean, 0.6), rgba($nightruins, 0.8));
+    background: linear-gradient(to bottom, rgba($deepocean, 0.6), rgba($nightruins, 0.9));
     z-index: 2;
   }
   .hero-content {
@@ -689,6 +703,11 @@ h3 { color: $nightruins; font-size: 1.8rem; margin: 2.5rem 0 1rem; }
   }
 }
 
+.amenities-box {
+  padding: 4rem; border-radius: 40px; @include glass-effect; background: rgba($deepocean, 0.03);
+  .amenities-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; }
+}
+
 // 5. Sustainability Preview
 .sustainability-section {
   position: relative;
@@ -736,6 +755,51 @@ h3 { color: $nightruins; font-size: 1.8rem; margin: 2.5rem 0 1rem; }
       h4 { font-size: 1.4rem; margin-bottom: 0.5rem; }
       p { font-size: 0.9rem; color: $mistyhorizon; }
     }
+  }
+}
+
+.eco-features-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem;
+  .eco-step-card { background: white; padding: 2rem; border-radius: 20px; border: 1px solid rgba($sargassumgreen, 0.1); text-align: center; transition: 0.3s; &:hover { border-color: $sargassumgreen; transform: translateY(-5px); @include shadow-premium; } }
+}
+
+.impact-banner {
+  background: $deepocean; border-radius: 16px; padding: 1.5rem; color: $seafoam;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+  align-items: center;
+
+  .impact-stats { display: flex; gap: 2rem; .stat-val { font-size: 2.5rem; font-weight: 800; color: $seafoam; } }
+
+  // stack items by default (mobile)
+  .activity-image,
+  .impact-media {
+    flex: 0 0 100%;
+  }
+  .impact-content {
+    flex: 1 1 100%;
+  }
+
+  @media (min-width: $bp-tablet) {
+    // side-by-side on tablet+ with fixed bases
+    flex-wrap: nowrap;
+    .activity-image,
+    .impact-media {
+      flex: 0 0 45%;
+    }
+    .impact-content {
+      flex: 1 1 55%;
+    }
+  }
+
+  // image inside banner should scale and have rounded corners
+  .impact-media img,
+  .activity-image img {
+    width: 100%;
+    border-radius: 16px;
+    object-fit: cover;
+    display: block;
   }
 }
 
@@ -841,6 +905,12 @@ h3 { color: $nightruins; font-size: 1.8rem; margin: 2.5rem 0 1rem; }
 // ESTILOS RECICLADOS PARA SUBPÁGINAS (about, contact, activities, etc)
 // ==========================================================================
 // Se mantienen para asegurar que las otras páginas HTML no se rompan
+
+.features-row {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;
+  .feature-item { background: white; padding: 2.5rem; border-radius: 20px; @include shadow-premium; .feature-num { font-weight: 800; font-size: 1.5rem; color: $piratecrimson; display: block; } }
+}
+
 .map-container {
   border: 6px solid $deepocean;
   border-radius: 8px;
